@@ -1,6 +1,7 @@
 # importar librerias 
 import pandas as pd 
 import numpy as np
+# catherine rascon NC 0072
 print("Fuga de Clientes / Churn (Clasificación Binaria) catherine eileen huerta rascon NC = 0072")
 
 clientes = {
@@ -20,4 +21,20 @@ print(agrupado['Antiguedad_Meses'].mean())
 print("-+-+-+-+ gasto mensual maximo +-+-+-+-")
 # maximo de cada servicio
 print(agrupado['Gasto_Mensual'].max())
-print("-+-+-+-+ agrupar por una sola columna +-+-+-+-")
+
+print("---catherine--- sgunda parte 2 ----0072----")
+print("agregaciones multiples")
+print("mean --> promedio, sum --> suma, max --> maximo, min --> minimo,")
+resultado_agregado = agrupado['Cancela_Servicio'].agg(['mean', 'sum', 'max', 'min'])
+print(resultado_agregado)
+print("agrega columna ak dataframe")
+print("agrupacion por varias columnas")
+print("columna team --> clientes")
+df['Team'] = ['A','B','A','B','A','B']
+
+agrupacion_multiple = df.groupby(['Antiguedad_Meses', 'Cliente'])['Gasto_Mensual'].mean()
+print(agrupacion_multiple)
+for nombre, agrupado in agrupado:
+    print(f"Department: {nombre}")
+    print(agrupado)
+    print("-"*30)
